@@ -1,15 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour 
+{
+	static protected GameManager _instance = null;
+	static public GameManager Instance { get { return GameManager._instance; } }
 
-	// Use this for initialization
-	void Start () {
-	
+	public void Start()
+	{
+		if (GameManager.Instance == null) {
+			GameManager._instance = this;
+			GameObject.DontDestroyOnLoad (this.gameObject);
+		} else {
+			GameObject.Destroy (this.gameObject);
+			return;
+		}
+
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void GameOver()
+	{
+		
 	}
 }

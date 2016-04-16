@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Barrier : MonoBehaviour {
+/// <summary>
+/// Class that represents a barrier that player cannot touch.
+/// </summary>
+public class Barrier : MonoBehaviour
+{
+	public BoxCollider2D _collider = null;
 
-	// Use this for initialization
-	void Start () {
-	
+	public void Start()
+	{
+		this._collider = this.GetComponent<BoxCollider2D>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.tag == "Player")
+		{
+			GameManager.Instance.GameOver();
+		}
 	}
 }
