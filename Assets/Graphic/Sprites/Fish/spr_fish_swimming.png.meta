@@ -1,11 +1,11 @@
 fileFormatVersion: 2
 guid: 7f9e81a57085340c9977474eda6f41e5
-timeCreated: 1460882029
+timeCreated: 1460882545
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spr_fish_swimming_0
-    21300002: spr_fish_swimming_1
+    21300000: spr_fish_swimming_1
+    21300002: spr_fish_swimming_0
     21300004: spr_fish_swimming_2
   serializedVersion: 2
   mipmaps:
@@ -47,13 +47,13 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 70
+  spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: spr_fish_swimming_0
+    - name: spr_fish_swimming_1
       rect:
         serializedVersion: 2
         x: 209
@@ -70,7 +70,7 @@ TextureImporter:
         - {x: 56, y: -42.5}
         - {x: 80, y: -27.5}
         - {x: 80, y: 41.5}
-    - name: spr_fish_swimming_1
+    - name: spr_fish_swimming_0
       rect:
         serializedVersion: 2
         x: 213

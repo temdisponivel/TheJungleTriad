@@ -1,12 +1,12 @@
 fileFormatVersion: 2
 guid: 8bd4ab5dd4b8542d9af7dd3131419f77
-timeCreated: 1460881772
+timeCreated: 1460883188
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: spr_bird_flying_0
     21300002: spr_bird_flying_1
-    21300004: spr_bird_flying2
+    21300004: spr_bird_flying_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -97,7 +97,7 @@ TextureImporter:
         - {x: 96, y: -15}
         - {x: 83, y: 8}
         - {x: 81, y: 9}
-    - name: spr_bird_flying2
+    - name: spr_bird_flying_2
       rect:
         serializedVersion: 2
         x: 4
