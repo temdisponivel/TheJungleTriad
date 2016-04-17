@@ -20,8 +20,10 @@ public class Player : MonoBehaviour
 
 	public State _currentState = State.Fish;
 	public Rigidbody2D _rigidBody = null;
+	public Animator _animator = null;
 	public float _velocity = 1f;
 	public float _angularVelocity = 1f;
+	public float _jumpForce = 1f;
 
 	public void Start()
 	{
@@ -30,7 +32,10 @@ public class Player : MonoBehaviour
 
 	public void FixedUpdate()
 	{
-		this._rigidBody.AddForce (this.transform.right * this._velocity, ForceMode2D.Impulse);
+		Vector2 force = ((Vector2)Vector2.right * this._velocity);
+		force.x -= this._rigidBody.velocity.x;
+		this._rigidBody.AddForce (force, ForceMode2D.Impulse);
+		this._animator.SetInteger ("State", (int) this._currentState);
 		switch (this._currentState) {
 			case State.Bird:
 				this.UpdateBird ();
@@ -48,7 +53,15 @@ public class Player : MonoBehaviour
 
 	public void UpdateBird()
 	{
-		
+		if (Input.GetAxis ("Vertical") > 0 && Vector2.Dot(this.transform.right, Vector2.one) < 1.40f) {
+			this.transform.Rotate (Vector3.forward, this._angularVelocity * Input.GetAxis("Vertical"));
+			Vector2 force = ((Vector2)Vector2.one * this._velocity);
+			force -= this._rigidBody.velocity;
+			this._rigidBody.AddForce (force, ForceMode2D.Impulse);
+		}
+		else if (Vector2.Dot(this.transform.right, Vector2.right) > .5f) {
+			this.transform.Rotate (Vector3.forward, -this._angularVelocity);
+		}
 	}
 
 	public void UpdateFish()
@@ -57,5 +70,9 @@ public class Player : MonoBehaviour
 
 	public void UpdateJaguar()
 	{
+		if (Input.GetButtonDown("Jump") && this._rigidBody.velocity.y >= 0)
+		{
+			this._rigidBody.AddForce (Vector2.up * this._jumpForce, ForceMode2D.Impulse);
+		}
 	}
 }
