@@ -54,14 +54,20 @@ public class Player : MonoBehaviour
 	public void UpdateBird()
 	{
 		this._rigidBody.gravityScale = 1;
-		if (Input.GetAxis ("Vertical") > 0 && Vector2.Dot(this.transform.right, Vector2.one) < 1.40f) {
-			this.transform.Rotate (Vector3.forward, this._angularVelocity * Input.GetAxis("Vertical"));
+		if (Input.GetAxis ("Vertical") > 0) {
+			if (Vector2.Dot(this.transform.right, Vector2.one) < 1.10f) {
+				this.transform.Rotate (Vector3.forward, this._angularVelocity * Input.GetAxis("Vertical"));
+			}
+
 			Vector2 force = ((Vector2)Vector2.one * this._velocity);
 			force -= this._rigidBody.velocity;
 			this._rigidBody.AddForce (force, ForceMode2D.Impulse);
 		}
 		else if (Vector2.Dot(this.transform.right, Vector2.right) > .5f) {
-			this.transform.Rotate (Vector3.forward, -this._angularVelocity);
+			Debug.Log (Vector2.Dot (this.transform.right, Vector2.one));
+			if (Vector2.Dot (this.transform.right, Vector2.one) > 0.8) {
+				this.transform.Rotate (Vector3.forward, -this._angularVelocity);
+			}
 		}
 	}
 
@@ -78,7 +84,7 @@ public class Player : MonoBehaviour
 	public void UpdateJaguar()
 	{
 		this._rigidBody.gravityScale = 1;
-		if (Input.GetButtonDown("Jump") && this._rigidBody.velocity.y >= 0)
+		if (Input.GetButtonDown("Jump") && this._rigidBody.velocity.y == 0)
 		{
 			this._rigidBody.AddForce (Vector2.up * this._jumpForce, ForceMode2D.Impulse);
 		}
