@@ -15,14 +15,22 @@ public class Player : MonoBehaviour
 		Jaguar,
 	}
 
-	public State _currentState = State.Jaguar;
+	static public Player Instance { get { return Player._instance; } }
+	static protected Player _instance = null;
+
+	public State _currentState = State.Fish;
 	public Rigidbody2D _rigidBody = null;
 	public float _velocity = 1f;
 	public float _angularVelocity = 1f;
 
+	public void Start()
+	{
+		Player._instance = this;
+	}
 
 	public void FixedUpdate()
 	{
+		this._rigidBody.AddForce (this.transform.right * this._velocity, ForceMode2D.Impulse);
 		switch (this._currentState) {
 			case State.Bird:
 				this.UpdateBird ();
