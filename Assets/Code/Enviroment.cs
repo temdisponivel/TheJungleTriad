@@ -29,7 +29,7 @@ public class Enviroment : MonoBehaviour
 
 	public void Update()
 	{
-		if (!this.GetComponent<SpriteRenderer>().isVisible && this.EndOfEnviroment.x < Camera.current.transform.position.x) {
+		if (!this.GetComponent<SpriteRenderer>().isVisible && this.EndOfEnviroment.x < GameManager.Instance.CurrentCamera.transform.position.x) {
 			EnviromentBuilder.Instance.BuildNext ();
 			GameObject.Destroy(this.gameObject);
 		}

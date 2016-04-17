@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 	static protected GameManager _instance = null;
 	static public GameManager Instance { get { return GameManager._instance; } }
 
+	public Camera CurrentCamera = null;
 	public int Score { get; set; }
 
 	public void Start()
