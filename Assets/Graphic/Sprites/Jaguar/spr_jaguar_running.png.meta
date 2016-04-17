@@ -1,18 +1,18 @@
 fileFormatVersion: 2
 guid: 2d49c1a08670241ea928f55bdeb8d937
-timeCreated: 1460879965
+timeCreated: 1460882287
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spr_movimento_cachorro_0
-    21300002: spr_movimento_cachorro_1
-    21300004: spr_movimento_cachorro_2
-    21300006: spr_movimento_cachorro_3
-    21300008: spr_movimento_cachorro_4
-    21300010: spr_movimento_cachorro_5
-    21300012: spr_movimento_cachorro_6
-    21300014: spr_movimento_cachorro_7
-    21300016: spr_movimento_cachorro_8
+    21300000: spr_jaguar_running_0
+    21300002: spr_jaguar_running_1
+    21300004: spr_jaguar_running_2
+    21300006: spr_jaguar_running_3
+    21300008: spr_jaguar_running_4
+    21300010: spr_jaguar_running_5
+    21300012: spr_jaguar_running_6
+    21300014: spr_jaguar_running_7
+    21300016: spr_jaguar_running_8
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -59,7 +59,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: spr_movimento_cachorro_0
+    - name: spr_jaguar_running_0
       rect:
         serializedVersion: 2
         x: 143
@@ -78,7 +78,7 @@ TextureImporter:
         - {x: 129.17543, y: -18.409729}
         - {x: 129.17543, y: 47.59027}
         - {x: 100.17543, y: 61.59027}
-    - name: spr_movimento_cachorro_1
+    - name: spr_jaguar_running_1
       rect:
         serializedVersion: 2
         x: 798
@@ -101,7 +101,7 @@ TextureImporter:
         - {x: -36.556, y: -55.40973}
         - {x: -40.556, y: -51.40973}
         - {x: 3.4440002, y: -64.40973}
-    - name: spr_movimento_cachorro_2
+    - name: spr_jaguar_running_2
       rect:
         serializedVersion: 2
         x: 1500
@@ -125,7 +125,7 @@ TextureImporter:
         - {x: -36.785706, y: -55.40973}
         - {x: -40.785706, y: -51.40973}
         - {x: 0.21429443, y: -64.40973}
-    - name: spr_movimento_cachorro_3
+    - name: spr_jaguar_running_3
       rect:
         serializedVersion: 2
         x: 2237
@@ -150,7 +150,7 @@ TextureImporter:
         - {x: 27.4646, y: -64.40973}
         - {x: 26.4646, y: -52.40973}
         - {x: 24.4646, y: -47.40973}
-    - name: spr_movimento_cachorro_4
+    - name: spr_jaguar_running_4
       rect:
         serializedVersion: 2
         x: 2915
@@ -177,7 +177,7 @@ TextureImporter:
         - {x: 117.19141, y: -64.40973}
         - {x: 127.19141, y: -37.40973}
         - {x: 127.19141, y: 25.590271}
-    - name: spr_movimento_cachorro_5
+    - name: spr_jaguar_running_5
       rect:
         serializedVersion: 2
         x: 144
@@ -205,7 +205,7 @@ TextureImporter:
         - {x: 32.260574, y: -50.422867}
         - {x: 25.260574, y: -45.422867}
         - {x: 31.260574, y: -42.422867}
-    - name: spr_movimento_cachorro_6
+    - name: spr_jaguar_running_6
       rect:
         serializedVersion: 2
         x: 798
@@ -238,7 +238,7 @@ TextureImporter:
         - {x: 54.444, y: -51.433716}
         - {x: 117.444, y: -12.433716}
         - {x: 128.444, y: -1.4337158}
-    - name: spr_movimento_cachorro_7
+    - name: spr_jaguar_running_7
       rect:
         serializedVersion: 2
         x: 1500
@@ -271,7 +271,7 @@ TextureImporter:
         - {x: 128.2143, y: -3.5188599}
         - {x: 128.2143, y: 27.48114}
         - {x: 109.214294, y: 65.48114}
-    - name: spr_movimento_cachorro_8
+    - name: spr_jaguar_running_8
       rect:
         serializedVersion: 2
         x: 2236

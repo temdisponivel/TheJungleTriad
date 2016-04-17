@@ -1,12 +1,12 @@
 fileFormatVersion: 2
 guid: 8bd4ab5dd4b8542d9af7dd3131419f77
-timeCreated: 1460878373
+timeCreated: 1460881772
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spr_movimento_passaro_0
-    21300002: spr_movimento_passaro_1
-    21300004: spr_movimento_passaro_2
+    21300000: spr_bird_flying_0
+    21300002: spr_bird_flying_1
+    21300004: spr_bird_flying2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -53,7 +53,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: spr_movimento_passaro_0
+    - name: spr_bird_flying_0
       rect:
         serializedVersion: 2
         x: 6
@@ -73,7 +73,7 @@ TextureImporter:
         - {x: 127, y: 3}
         - {x: 127, y: 54}
         - {x: 78, y: 83}
-    - name: spr_movimento_passaro_1
+    - name: spr_bird_flying_1
       rect:
         serializedVersion: 2
         x: 246
@@ -97,7 +97,7 @@ TextureImporter:
         - {x: 96, y: -15}
         - {x: 83, y: 8}
         - {x: 81, y: 9}
-    - name: spr_movimento_passaro_2
+    - name: spr_bird_flying2
       rect:
         serializedVersion: 2
         x: 4
