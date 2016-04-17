@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
 	public void GameOver()
 	{
-		
+		Debug.Log ("GO");
 	}
 
 	public IEnumerator Accelerate()
