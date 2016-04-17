@@ -15,21 +15,22 @@ public class Enviroment : MonoBehaviour
 	public GameObject[] _barriersPosition = null;
 	public int _minBarrierCount = 1;
 
-	public Vector2 StartOfEnviroment {get { return this.transform.TransformVector (this._startOfEnviromentObj.transform.position); } }
-	public Vector2 EndOfEnviroment {get { return this.transform.TransformVector (this._endOfEnviromentObj.transform.position); } }
+	public Vector2 StartOfEnviroment {get { return this.transform.position + this._startOfEnviromentObj.transform.position; } }
+	public Vector2 EndOfEnviroment {get { return this.transform.position + this._endOfEnviromentObj.transform.position; } }
 
 	public void Start()
 	{
 		float barrierCount = Random.Range (this._minBarrierCount, this._barriersPosition.Length);
 		for (int i = 0; i < barrierCount; i++) {
 			int index = (int) Random.Range (0, this._barriersPosition.Length);
-			GameObject.Instantiate (this._barrier, this._barriersPosition [index].transform.position, this._barriersPosition [index].transform.rotation);
+			GameObject b = (GameObject)GameObject.Instantiate (this._barrier, this._barriersPosition [index].transform.position, this._barriersPosition [index].transform.rotation);
+			b.transform.parent = this.transform;
 		}
 	}
 
 	public void Update()
 	{
-		if (!this.GetComponent<SpriteRenderer>().isVisible && this.EndOfEnviroment.x < GameManager.Instance.CurrentCamera.transform.position.x) {
+		if (GameManager.Instance.CurrentCamera.WorldToViewportPoint(this.EndOfEnviroment).x < 0) {
 			EnviromentBuilder.Instance.BuildNext ();
 			GameObject.Destroy(this.gameObject);
 		}
@@ -37,7 +38,6 @@ public class Enviroment : MonoBehaviour
 
 	public void MoveStartTo(Vector2 position)
 	{
-		Debug.Log ("ALOOOO");
-		this.transform.position = (Vector2) this.StartOfEnviroment + position;
+		this.transform.position = new Vector2() { x = ((Vector2)this._startOfEnviromentObj.transform.position - position).x, y = 0 };
 	}
 }

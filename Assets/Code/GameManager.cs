@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 	public Camera CurrentCamera = null;
 	public int Score { get; set; }
 
+	public float _accelerationPerSecond = .1f;
+
 	public void Start()
 	{
 		if (GameManager.Instance == null) {
@@ -18,10 +20,21 @@ public class GameManager : MonoBehaviour
 			GameObject.Destroy (this.gameObject);
 			return;
 		}
+		this.StartCoroutine (this.Accelerate ());
 	}
 
 	public void GameOver()
 	{
 		
+	}
+
+	public IEnumerator Accelerate()
+	{
+		while (true) {
+			yield return new WaitForSeconds (1);
+			if (Player.Instance != null) {
+				Player.Instance._velocity += this._accelerationPerSecond;
+			}
+		}
 	}
 }
