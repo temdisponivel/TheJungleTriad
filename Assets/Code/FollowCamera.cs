@@ -6,8 +6,11 @@ using System.Collections;
 /// </summary>
 public class FollowCamera : MonoBehaviour 
 {
+	public Vector2 _offSet;
+
 	public void Update()
 	{
-		this.transform.position = Vector2.MoveTowards (this.transform.position, Player.Instance.transform.position, 1);
+		Vector2 position = Vector2.MoveTowards (this.transform.position, (Vector2)Player.Instance.transform.position - this._offSet, 1);
+		this.transform.position = new Vector3() { x = position.x, y = this.transform.position.y, z = this.transform.position.z };
 	}
 }
