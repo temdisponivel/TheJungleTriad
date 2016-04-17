@@ -23,7 +23,7 @@ public class Enviroment : MonoBehaviour
 	public GameObject _food = null;
 	public Vector2 _startPositionToPlaceFood;
 	public Vector2 _endPositionToPlaceFood;
-	public int _maxCountInRow = 10f;
+	public int _maxCountInRow = 10;
 
 	public Vector2 StartOfEnviroment {get { return this.transform.TransformVector (this._startOfEnviromentObj.transform.position); } }
 	public Vector2 EndOfEnviroment {get { return this.transform.TransformVector (this._endOfEnviromentObj.transform.position); } }
@@ -34,9 +34,15 @@ public class Enviroment : MonoBehaviour
 		float size = Vector2.Distance (this.StartOfEnviroment - this._startPositionToPlaceBarrier, this.EndOfEnviroment - this._endPositionToPlaceBarrier);
 		float maxPossibleBarrier = (int)(size / this._minDistanceBetweenBarrier);
 		barrierCount = Mathf.Clamp (barrierCount, 0, maxPossibleBarrier);
+		float averageDistance = size / barrierCount;
+		Vector2 lastPositionBarrier = this.StartOfEnviroment + this._startPositionToPlaceBarrier;
 		for (int i = 0; i < barrierCount; i++) {
-			
-		}			
+			float distanceToLast = Random.Range (this._minDistanceBetweenBarrier, averageDistance);
+			Vector2 position = lastPositionBarrier;
+			position.x += distanceToLast;
+			position.y += this.transform.position.y - Random.Range (-3, 3);
+			GameObject.Instantiate (this._barrier, position, Quaternion.identity);
+		}
 	}
 
 	public void Update()
