@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 	public State _currentState = State.Fish;
 	public Rigidbody2D _rigidBody = null;
 	public Animator _animator = null;
-	public float _velocity = 1f;
+	public float _velocity = 3f;
 	public float _angularVelocity = 1f;
 	public float _jumpForce = 1f;
 
