@@ -23,7 +23,9 @@ public class Enviroment : MonoBehaviour
 	public GameObject _food = null;
 	public Vector2 _startPositionToPlaceFood;
 	public Vector2 _endPositionToPlaceFood;
-	public int _maxCountInRow = 10;
+	public int _minFoodCount = 1;
+	public int _maxFoodCount = 10;
+	public int _countInRow = 10;
 
 	public Vector2 StartOfEnviroment {get { return this.transform.TransformVector (this._startOfEnviromentObj.transform.position); } }
 	public Vector2 EndOfEnviroment {get { return this.transform.TransformVector (this._endOfEnviromentObj.transform.position); } }
@@ -35,6 +37,7 @@ public class Enviroment : MonoBehaviour
 		float maxPossibleBarrier = (int)(size / this._minDistanceBetweenBarrier);
 		barrierCount = Mathf.Clamp (barrierCount, 0, maxPossibleBarrier);
 		float averageDistance = size / barrierCount;
+		Vector2[] barriesPosition = new Vector2[(int)barrierCount];
 		Vector2 lastPositionBarrier = this.StartOfEnviroment + this._startPositionToPlaceBarrier;
 		for (int i = 0; i < barrierCount; i++) {
 			float distanceToLast = Random.Range (this._minDistanceBetweenBarrier, averageDistance);
@@ -42,6 +45,16 @@ public class Enviroment : MonoBehaviour
 			position.x += distanceToLast;
 			position.y += this.transform.position.y - Random.Range (-3, 3);
 			GameObject.Instantiate (this._barrier, position, Quaternion.identity);
+			barriesPosition [i] = position;
+		}
+
+		float foodCount = Random.Range (this._minFoodCount, this._maxFoodCount);
+		int sequenceCount = (int)foodCount % this._countInRow;
+		for (int i = 0; i < sequenceCount; i++)
+		{
+			for (int j = 0; j < foodCount / sequenceCount; j++) {
+				
+			}
 		}
 	}
 
