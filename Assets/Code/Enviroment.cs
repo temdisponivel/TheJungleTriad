@@ -41,7 +41,6 @@ public class Enviroment : MonoBehaviour
 
 	public void MoveStartTo(Vector2 position)
 	{
-		this.transform.position = new Vector2() { x = ((Vector2)this._startOfEnviromentObj.transform.localPosition - position).x, y = 0 };
 	}
 
 	public void OnTriggerEnter2D(Collider2D coll)
