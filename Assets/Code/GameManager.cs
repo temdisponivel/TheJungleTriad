@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEngine.SceneManagement;
+using UnityEngine;
 using System.Collections;
 
 public class GameManager : MonoBehaviour 
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
 
 	public void GameOver()
 	{
-		
+		SceneManager.LoadScene ("GameOver");
 	}
 
 	public IEnumerator Accelerate()

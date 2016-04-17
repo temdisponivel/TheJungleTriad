@@ -25,9 +25,12 @@ public class Player : MonoBehaviour
 	public float _angularVelocity = 1f;
 	public float _jumpForce = 1f;
 
+	protected State _lastState = State.Fish;
+
 	public void Start()
 	{
 		Player._instance = this;
+		this._lastState = this._currentState;
 	}
 
 	public void FixedUpdate()
@@ -36,6 +39,9 @@ public class Player : MonoBehaviour
 		force.x -= this._rigidBody.velocity.x;
 		this._rigidBody.AddForce (force, ForceMode2D.Impulse);
 		this._animator.SetInteger ("State", (int) this._currentState);
+		if (this._lastState != this._currentState) {
+			this.transform.rotation = Quaternion.identity;
+		}
 		switch (this._currentState) {
 			case State.Bird:
 				this.UpdateBird ();

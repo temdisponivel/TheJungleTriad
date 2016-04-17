@@ -43,13 +43,4 @@ public class Enviroment : MonoBehaviour
 	{
 		this.transform.position = new Vector2() { x = ((Vector2)this._startOfEnviromentObj.transform.position - position).x, y = 0 };
 	}
-
-	public void OnTriggerEnter2D(Collider2D coll)
-	{
-		if (coll.gameObject.tag == "Player") {
-			if (Player.Instance._currentState != this._targetState) {
-				GameManager.Instance.GameOver ();
-			}
-		}
-	}
 }
