@@ -14,13 +14,7 @@ public class GameManager : MonoBehaviour
 
 	public void Start()
 	{
-		if (GameManager.Instance == null) {
-			GameManager._instance = this;
-			GameObject.DontDestroyOnLoad (this.gameObject);
-		} else {
-			GameObject.Destroy (this.gameObject);
-			return;
-		}
+		GameManager._instance = this;
 		this.StartCoroutine (this.Accelerate ());
 	}
 

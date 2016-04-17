@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
 				this.transform.Rotate (Vector3.forward, this._angularVelocity * Input.GetAxis("Vertical"));
 			}
 
-			Vector2 force = ((Vector2)Vector2.one * this._velocity);
+			Vector2 force = ((Vector2)Vector2.one * (this._velocity / 1.5f));
 			force -= this._rigidBody.velocity;
 			this._rigidBody.AddForce (force, ForceMode2D.Impulse);
 		}
@@ -73,6 +73,7 @@ public class Player : MonoBehaviour
 			Debug.Log (Vector2.Dot (this.transform.right, Vector2.one));
 			if (Vector2.Dot (this.transform.right, Vector2.one) > 0.8) {
 				this.transform.Rotate (Vector3.forward, -this._angularVelocity);
+				this._rigidBody.AddForce (-Vector2.up, ForceMode2D.Impulse);
 			}
 		}
 	}
@@ -90,9 +91,10 @@ public class Player : MonoBehaviour
 	public void UpdateJaguar()
 	{
 		this._rigidBody.gravityScale = 1;
-		if (Input.GetButtonDown("Jump") && this._rigidBody.velocity.y == 0)
-		{
+		if (Input.GetButtonDown ("Jump") && this._rigidBody.velocity.y == 0) {
 			this._rigidBody.AddForce (Vector2.up * this._jumpForce, ForceMode2D.Impulse);
+		} else {
+			this._rigidBody.AddForce (-Vector2.up * 2, ForceMode2D.Impulse);
 		}
 	}
 }

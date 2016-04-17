@@ -20,7 +20,7 @@ public class EnviromentBuilder : MonoBehaviour
 		GameObject nextEnviroment = this._possibleEnviroments[Random.Range (0, this._possibleEnviroments.Length)];
 		GameObject next = (GameObject) GameObject.Instantiate (nextEnviroment);
 		Enviroment enviroment = next.GetComponent<Enviroment> ();
-		enviroment.MoveStartTo (this._endOfLastEnviroment);
-		this._endOfLastEnviroment = enviroment._endOfEnviromentObj.transform.position;
+		this._endOfLastEnviroment = enviroment.MoveStartTo (this._endOfLastEnviroment);
+		 //= enviroment._endOfEnviromentObj.transform.position;
 	}
 }

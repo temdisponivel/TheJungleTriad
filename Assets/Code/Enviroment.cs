@@ -39,8 +39,9 @@ public class Enviroment : MonoBehaviour
 		}
 	}
 
-	public void MoveStartTo(Vector2 position)
+	public Vector2 MoveStartTo(Vector2 position)
 	{
-		this.transform.position = new Vector2() { x = ((Vector2)this._startOfEnviromentObj.transform.position - position).x, y = 0 };
+		this.transform.position = new Vector2() { x = (position.x + this._endOfEnviromentObj.transform.localPosition.x), y = 0 };
+		return position + (Vector2)this._endOfEnviromentObj.transform.localPosition;
 	}
 }
